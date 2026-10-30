@@ -28,7 +28,7 @@ public class InversionTileService extends TileService {
         Tile tile = getQsTile();
         if (tile == null) return;
         tile.setState(NightMode.isOn(this) ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
-        tile.updateState();
+        tile.updateTile();
     }
 
     private void openApp() {
