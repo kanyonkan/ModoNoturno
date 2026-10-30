@@ -1,0 +1,31 @@
+MODO NOTURNO — app Android de uma única função
+===============================================
+
+O que faz
+- Ativado: liga a inversão de cores do Android -> todos os apps ficam com
+  fundo preto e letras brancas.
+- Desativado: desliga a inversão e o Android volta ao normal.
+- Há um interruptor dentro do app e um botão no painel de configurações
+  rápidas (arraste a barra de notificações e edite os botões para adicionar
+  "Modo noturno").
+
+Como gerar o APK (o projeto não precisa de nenhuma biblioteca extra)
+Opção A — Android Studio: abra a pasta NightInvert e use
+         Build > Build APK(s). O arquivo sai em app/build/outputs/apk/debug/.
+Opção B — GitHub (sem instalar nada): crie um repositório, envie esta pasta,
+         abra a aba Actions > "Build APK" > Run workflow e baixe o
+         "ModoNoturno-apk" ao terminar.
+
+Permissão (uma única vez)
+O Android só deixa um app mudar a inversão de cores se receber a permissão
+WRITE_SECURE_SETTINGS. Com a depuração USB ativada e o celular ligado ao
+computador, execute:
+
+  adb shell pm grant com.nightinvert.app android.permission.WRITE_SECURE_SETTINGS
+
+Sem isso o app abre os ajustes de acessibilidade, onde você liga
+"Inversão de cores" manualmente.
+
+Observação
+A inversão vale para tudo, inclusive fotos e vídeos (que ficam com cores
+invertidas) e apps que já são escuros (que ficam claros).
